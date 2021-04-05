@@ -19,11 +19,16 @@ import { EchoBot } from './bot';
 
 // Create HTTP server.
 const server = restify.createServer();
+
 server.listen(process.env.port || process.env.PORT || 3978, () => {
     console.log(`\n${server.name} listening to ${server.url}`);
     console.log('\nGet Bot Framework Emulator: https://aka.ms/botframework-emulator');
     console.log('\nTo talk to your bot, open the emulator select "Open Bot"');
 });
+
+server.use(restify.plugins.bodyParser({
+    mapParams: true
+}));
 
 // Create adapter.
 // See https://aka.ms/about-bot-adapter to learn more about adapters.
@@ -56,7 +61,8 @@ const onTurnErrorHandler = async (context, error) => {
 adapter.onTurnError = onTurnErrorHandler;
 
 // Create the main dialog.
-const myBot = new EchoBot();
+const conversationReferences = {};
+const myBot = new EchoBot(conversationReferences);
 
 // Listen for incoming requests.
 server.post('/api/messages', (req, res) => {
@@ -81,4 +87,33 @@ server.on('upgrade', (req, socket, head) => {
         // the WebSocket connection.
         await myBot.run(context);
     });
+});
+
+// Listen for incoming notifications and send proactive messages to users.
+server.get('/api/notify', async (req, res) => {
+    for (const conversationReference of Object.values(conversationReferences)) {
+        await adapter.continueConversation(conversationReference, async turnContext => {
+            await turnContext.sendActivity('proactive hello');
+        });
+    }
+    res.setHeader('Content-Type', 'text/html');
+    res.writeHead(200);
+    res.write('<html><body><h1>Proactive messages have been sent.</h1></body></html>');
+    res.end();
+});
+
+// Listen for incoming custom notifications and send proactive messages to users.
+server.post('/api/notify', async (req, res) => {
+    for (var prop in req.body) {
+        var msg = req.body[prop];
+        for (const conversationReference of Object.values(conversationReferences)) {
+            await adapter.continueConversation(conversationReference, async turnContext => {
+                await turnContext.sendActivity(msg);
+            });
+        }
+    }
+    res.setHeader('Content-Type', 'text/html');
+    res.writeHead(200);
+    res.write('Proactive messages have been sent.');
+    res.end();
 });

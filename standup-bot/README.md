@@ -38,6 +38,17 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
 - File -> Open Bot
 - Enter a Bot URL of `http://localhost:3978/api/messages`
 
+
+## Send notifaction to the user
+
+Use a tool like Postman or CURL to send notifcations to your bot using a Post request to the endpoint http://localhost:3978/api/notify with the following json body:
+
+``` bash
+curl 'http://localhost:3978/api/notify' \
+ -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/json' -H 'Origin: http://localhost:3978' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-GPC: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' --data-raw $'{ "Notification1": "this should be the first notification", \n  "Notification2": "this should be the second notification",\n  "Notification3": "this should be the LAST notification"}\n'y
+```
+
+
 ## Deploy the bot to Azure
 
 ### Publishing Changes to Azure Bot Service
