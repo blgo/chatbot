@@ -53,10 +53,10 @@ curl 'http://localhost:3978/api/notify' \
 
 ### Publishing Changes to Azure Bot Service
 
-    ```bash
-    # build the TypeScript bot before you publish
-    npm run build
-    ```
+```bash
+# build the TypeScript bot before you publish
+npm run build
+```
 
 To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](https://aka.ms/azuredeployment) for a complete list of deployment instructions.
 
@@ -69,20 +69,17 @@ chmod +x /tmp/ngrok
 sudo mv /tmp/ngrok /usr/bin/
 ```
 
-run ngrok
+run ngrok:
 ```
 ngrok http 3978 --host-header=localhost:3978
 ```
 
 # MS Teams bot handle name
 
-```
-kEbEdeyutiezos
-```
+Everytme `ngrok` restart you need to update this Teams bot Messaging endpoint.
 
-Everytme ngrok restart you need to update this Teams bot Messaging endpoint:
-to create: https://dev.botframework.com/bots
-to view: https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.BotService%2FbotServices
+View your bots: https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.BotService%2FbotServices
+
 ## Further reading
 
 - [Bot Framework Documentation](https://docs.botframework.com)
