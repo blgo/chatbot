@@ -45,7 +45,7 @@ Use a tool like Postman or CURL to send notifcations to your bot using a Post re
 
 ``` bash
 curl 'http://localhost:3978/api/notify' \
- -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/json' -H 'Origin: http://localhost:3978' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-GPC: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' --data-raw $'{ "Notification1": "this should be the first notification", \n  "Notification2": "this should be the second notification",\n  "Notification3": "this should be the LAST notification"}\n'y
+ -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Accept-Language: en-US,en;q=0.5' --compressed -H 'Content-Type: application/json' -H 'Origin: http://localhost:3978' -H 'DNT: 1' -H 'Connection: keep-alive' -H 'Upgrade-Insecure-Requests: 1' -H 'Sec-GPC: 1' -H 'Pragma: no-cache' -H 'Cache-Control: no-cache' --data-raw $'{ "Notification1": "this should be the first notification", \n  "Notification2": "this should be the second notification",\n  "Notification3": "this should be the LAST notification"}\n'
 ```
 
 
@@ -60,6 +60,29 @@ curl 'http://localhost:3978/api/notify' \
 
 To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](https://aka.ms/azuredeployment) for a complete list of deployment instructions.
 
+## Ngrok
+
+```bash
+curl https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip --output /tmp/ngrok.zip
+unzip ngrok
+chmod +x /tmp/ngrok
+sudo mv /tmp/ngrok /usr/bin/
+```
+
+run ngrok
+```
+ngrok http 3978 --host-header=localhost:3978
+```
+
+# MS Teams bot handle name
+
+```
+kEbEdeyutiezos
+```
+
+Everytme ngrok restart you need to update this Teams bot Messaging endpoint:
+to create: https://dev.botframework.com/bots
+to view: https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.BotService%2FbotServices
 ## Further reading
 
 - [Bot Framework Documentation](https://docs.botframework.com)

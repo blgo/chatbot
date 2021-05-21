@@ -1,0 +1,78 @@
+{
+    "acceptMappedClaims": null,
+    "addIns": [],
+    "allowGuestsSignIn": null,
+    "allowPassthroughUsers": null,
+    "appId": "ef892738-8a46-4293-b946-5b49eeb5d43c",
+    "appLogoUrl": null,
+    "appPermissions": null,
+    "appRoles": [],
+    "applicationTemplateId": null,
+    "availableToOtherTenants": true,
+    "deletionTimestamp": null,
+    "displayName": "Test85u",
+    "errorUrl": null,
+    "groupMembershipClaims": null,
+    "homepage": null,
+    "identifierUris": [],
+    "informationalUrls": {
+      "marketing": null,
+      "privacy": null,
+      "support": null,
+      "termsOfService": null
+    },
+    "isDeviceOnlyAuthSupported": null,
+    "keyCredentials": [],
+    "knownClientApplications": [],
+    "logo@odata.mediaContentType": "application/json;odata=minimalmetadata; charset=utf-8",
+    "logo@odata.mediaEditLink": "directoryObjects/5fe74e22-a591-44f4-932e-c11bc3878ebb/Microsoft.DirectoryServices.Application/logo",
+    "logoUrl": null,
+    "logoutUrl": null,
+    "mainLogo@odata.mediaEditLink": "directoryObjects/5fe74e22-a591-44f4-932e-c11bc3878ebb/Microsoft.DirectoryServices.Application/mainLogo",
+    "oauth2AllowIdTokenImplicitFlow": true,
+    "oauth2AllowImplicitFlow": false,
+    "oauth2AllowUrlPathMatching": false,
+    "oauth2Permissions": [
+      {
+        "adminConsentDescription": "Allow the application to access Test85u on behalf of the signed-in user.",
+        "adminConsentDisplayName": "Access Test85u",
+        "id": "433a27f7-989f-4013-a68c-848d8a0c9f29",
+        "isEnabled": true,
+        "type": "User",
+        "userConsentDescription": "Allow the application to access Test85u on your behalf.",
+        "userConsentDisplayName": "Access Test85u",
+        "value": "user_impersonation"
+      }
+    ],
+    "oauth2RequirePostResponse": false,
+    "objectId": "5fe74e22-a591-44f4-932e-c11bc3878ebb",
+    "objectType": "Application",
+    "odata.metadata": "https://graph.windows.net/fccc9424-53fd-4f3c-b4d7-594d2a9bcf33/$metadata#directoryObjects/@Element",
+    "odata.type": "Microsoft.DirectoryServices.Application",
+    "optionalClaims": null,
+    "orgRestrictions": [],
+    "parentalControlSettings": {
+      "countriesBlockedForMinors": [],
+      "legalAgeGroupRule": "Allow"
+    },
+    "passwordCredentials": [
+      {
+        "additionalProperties": null,
+        "customKeyIdentifier": null,
+        "endDate": "2022-04-12T07:34:03.163550+00:00",
+        "keyId": "dead2325-6dc1-4788-bd5a-189423fb77a2",
+        "startDate": "2021-04-13T07:34:03.163550+00:00",
+        "value": null
+      }
+    ],
+    "preAuthorizedApplications": null,
+    "publicClient": null,
+    "publisherDomain": "blas1990hotmail.onmicrosoft.com",
+    "recordConsentConditions": null,
+    "replyUrls": [],
+    "requiredResourceAccess": [],
+    "samlMetadataUrl": null,
+    "signInAudience": "AzureADMultipleOrgs",
+    "tokenEncryptionKeyId": null,
+    "wwwHomepage": null
+  }
